@@ -1,10 +1,10 @@
 "use client"
 
-import { Chat } from "@/components/Chat";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SocketContext } from "@/contexts/SocketContext";
 import { useContext, useEffect } from "react";
+import { Chat } from "./components/Chat";
 
 export default function Room({params}: {params: {id: string}}) {
 
@@ -12,7 +12,6 @@ export default function Room({params}: {params: {id: string}}) {
 
   useEffect(() => {
     console.log('useEffect Room Page')
-    console.log(params.id)
 
     socket?.on('connect', async () => {
       console.log('Conectado:')
@@ -22,7 +21,7 @@ export default function Room({params}: {params: {id: string}}) {
         socketId: socket.id
       })
     })
-  }, [])
+  }, [socket, params.id])
 
   return (
     <div className="h-screen" >
@@ -50,7 +49,7 @@ export default function Room({params}: {params: {id: string}}) {
             </div>
           </div>
         </div>
-        <Chat/>
+        <Chat roomId={params.id} />
       </div>
     
       

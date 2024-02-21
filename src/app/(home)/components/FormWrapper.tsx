@@ -11,7 +11,6 @@ export function FormWrapper() {
 
   function handleSelectRoom(room: 'join' | 'create') {
 
-    console.log(room)
 
     setSelectRoom(room)
   }

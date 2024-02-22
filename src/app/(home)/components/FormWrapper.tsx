@@ -1,10 +1,10 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { useState } from "react"
-import { InputJoin } from "./InputJoin"
-import { InputCreate } from "./InputCreate"
+import { CreateRoomForm } from "./FormCreate"
+import { JoinRoomForm } from "./FormJoin"
+
 
 export function FormWrapper() {
   const [selectRoom, setSelectRoom] = useState<'join' | 'create'>('join')
@@ -40,9 +40,9 @@ export function FormWrapper() {
       </div>
       
       {selectRoom == 'create' ? (
-        <InputCreate/>
+        <CreateRoomForm/>
       ):(
-        <InputJoin />
+        <JoinRoomForm />
       )}
     </div>
   )

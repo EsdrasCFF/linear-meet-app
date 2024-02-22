@@ -53,6 +53,8 @@ export function Chat({roomId}:{roomId: string}) {
 
     socket?.emit('chat', sendMessageToServer)
 
+    setChat(prevState => [...prevState, sendMessageToServer])
+
     setValue('message', '')
   }
 
